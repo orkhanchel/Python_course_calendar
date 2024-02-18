@@ -1,13 +1,22 @@
-"""
-Позволяет зайти по логину-паролю или создать нового пользователя (а так же выйти из аккаунта)
-Позволяет выбрать календарь, узнать ближайшие события, события из промежутка времени а так же
-Создать событие или удалить событие
-После создания события можно добавить туда пользователей
-Если нас добавили в событие или удалили мы получаем уведомление.
-
-в main можно использовать ТОЛЬКО interface
-"""
+from Backend import Backend
+from User import User
 
 
 class Interface:
-    pass
+    def __init__(self):
+        self.backend = Backend()
+
+    def login(self, user_id, password):
+        if self.backend.verify_credentials(user_id, password):
+            print("Login successful.")
+            return User(user_id, self.backend.users[user_id]['username'], self.backend)
+        else:
+            print("Invalid credentials.")
+
+    def register_user(self, user_id, username, password):
+        if user_id not in self.backend.users:
+            self.backend.register_user(user_id, username, password)
+            print("User created successfully.")
+        else:
+            print("User already exists.")
+
