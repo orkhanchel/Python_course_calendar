@@ -93,6 +93,7 @@ class CalendarApp(QWidget):
             self.interface.add_event(date, title, description)
             QMessageBox.information(self, "Event Added", f"Event added for {date}\nTitle: {title}\nDescription: {description}")
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     interface = Interface()
