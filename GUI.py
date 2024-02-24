@@ -1,38 +1,3 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QCalendarWidget, QPushButton, QMessageBox, QDialog, QLabel, QLineEdit, QDialogButtonBox
-
-
-class AddEventDialog(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Add Event")
-        layout = QVBoxLayout()
-
-        self.date_label = QLabel("Date:")
-        layout.addWidget(self.date_label)
-
-        self.date_edit = QLineEdit()
-        layout.addWidget(self.date_edit)
-
-        self.title_label = QLabel("Title:")
-        layout.addWidget(self.title_label)
-
-        self.title_edit = QLineEdit()
-        layout.addWidget(self.title_edit)
-
-        self.description_label = QLabel("Description:")
-        layout.addWidget(self.description_label)
-
-        self.description_edit = QLineEdit()
-        layout.addWidget(self.description_edit)
-
-        button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        button_box.accepted.connect(self.accept)
-        button_box.rejected.connect(self.reject)
-        layout.addWidget(button_box)
-
-        self.setLayout(layout)
-
-
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QCalendarWidget, QPushButton, QMessageBox, QDialog, QLabel, QLineEdit, QDialogButtonBox
 from Interface import Interface
